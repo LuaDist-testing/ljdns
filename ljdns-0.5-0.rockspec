@@ -1,10 +1,10 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "ljdns"
-version = "0.4-0"
+version = "0.5-0"
 -- LuaDist source
 source = {
-  tag = "0.4-0",
+  tag = "0.5-0",
   url = "git://github.com/LuaDist-testing/ljdns.git"
 }
 -- Original source
@@ -40,11 +40,12 @@ build = {
     bin = {
       zq = "tools/zq.lua",
       ldig = "tools/ldig.lua",
-      namepile = "tools/namepile.lua",
     }
   },
   modules = {
     ["dns.nbio"] = "dns/nbio.lua",
+    ["dns.nbio.syscall"] = "dns/nbio/syscall.lua",
+    ["dns.nbio.openresty"] = "dns/nbio/openresty.lua",
     ["dns.rrparser"] = "dns/rrparser.lua",
     ["dns.sift"] = "dns/sift.lua",
     ["dns.utils"] = "dns/utils.lua",
