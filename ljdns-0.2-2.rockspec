@@ -1,10 +1,10 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "ljdns"
-version = "0.2-1"
+version = "0.2-2"
 -- LuaDist source
 source = {
-  tag = "0.2-1",
+  tag = "0.2-2",
   url = "git://github.com/LuaDist-testing/ljdns.git"
 }
 -- Original source
@@ -16,7 +16,7 @@ description = {
    detailed = [[
 	The goal of this project is a fast DNS library for testing new RFCs and building DNS services.
 	It supports all widely used DNS records (DNSSEC included) with a lean and mean API, including DNS primitives,
-	messages and asynchronous I/O (including coroutines, TCP Fast Open and SO_REUSEPORT), and DNS over TLS.
+	messages and non-blocking I/O (including coroutines, TCP Fast Open and SO_REUSEPORT), and DNS over TLS.
    ]],
    homepage = "https://github.com/vavrusa/ljdns",
    license = "BSD"
@@ -24,6 +24,8 @@ description = {
 dependencies = {
    "lua >= 5.1",
    "ljsyscall >= 0.12",
+   "lua-lru >= 1.0",
+   "lua-cjson >= 2.1.0",
 }
 external_dependencies = {
     LIBZSCANNER = {
@@ -37,20 +39,26 @@ build = {
   type = "builtin",
   install = {
     bin = {
-      zq = "examples/zq.lua",
-      ldig = "examples/dig.lua",
-      namepile = "examples/namepile.lua"
+      zq = "tools/zq.lua",
+      ldig = "tools/ldig.lua",
+      namepile = "tools/namepile.lua",
+      warp = "warp/warp.lua"
     }
   },
   modules = {
-    ["kdns.aio"] = "kdns/aio.lua",
-    ["kdns.rrparser"] = "kdns/rrparser.lua",
-    ["kdns.sift"] = "kdns/sift.lua",
-    ["kdns.utils"] = "kdns/utils.lua",
-    ["kdns.lmdb"] = "kdns/lmdb.lua",
-    ["kdns.tls"] = "kdns/tls.lua",
-    kdns = "kdns.lua",
+    ["dns.nbio"] = "dns/nbio.lua",
+    ["dns.rrparser"] = "dns/rrparser.lua",
+    ["dns.sift"] = "dns/sift.lua",
+    ["dns.utils"] = "dns/utils.lua",
+    ["dns.lmdb"] = "dns/lmdb.lua",
+    ["dns.tls"] = "dns/tls.lua",
+    ["dns.dnssec"] = "dns/dnssec.lua",
+    dns = "dns.lua",
     kdns_clib = "src/utils.c",
+    ["warp.vendor.init"] = "warp/vendor/init.lua",
+    ["warp.route.dnssec"] = "warp/route/dnssec.lua",
+    ["warp.route.file"] = "warp/route/file.lua",
+    ["warp.route.lru"] = "warp/route/lru.lua",
   }
 }
 rockspec_format = "1.1"
