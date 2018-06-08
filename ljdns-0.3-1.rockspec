@@ -1,10 +1,10 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "ljdns"
-version = "0.2-2"
+version = "0.3-1"
 -- LuaDist source
 source = {
-  tag = "0.2-2",
+  tag = "0.3-1",
   url = "git://github.com/LuaDist-testing/ljdns.git"
 }
 -- Original source
@@ -24,7 +24,6 @@ description = {
 dependencies = {
    "lua >= 5.1",
    "ljsyscall >= 0.12",
-   "lua-lru >= 1.0",
    "lua-cjson >= 2.1.0",
 }
 external_dependencies = {
@@ -42,7 +41,6 @@ build = {
       zq = "tools/zq.lua",
       ldig = "tools/ldig.lua",
       namepile = "tools/namepile.lua",
-      warp = "warp/warp.lua"
     }
   },
   modules = {
@@ -55,10 +53,6 @@ build = {
     ["dns.dnssec"] = "dns/dnssec.lua",
     dns = "dns.lua",
     kdns_clib = "src/utils.c",
-    ["warp.vendor.init"] = "warp/vendor/init.lua",
-    ["warp.route.dnssec"] = "warp/route/dnssec.lua",
-    ["warp.route.file"] = "warp/route/file.lua",
-    ["warp.route.lru"] = "warp/route/lru.lua",
   }
 }
 rockspec_format = "1.1"
