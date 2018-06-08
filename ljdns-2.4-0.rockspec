@@ -1,10 +1,10 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "ljdns"
-version = "0.5-0"
+version = "2.4-0"
 -- LuaDist source
 source = {
-  tag = "0.5-0",
+  tag = "2.4-0",
   url = "git://github.com/LuaDist-testing/ljdns.git"
 }
 -- Original source
