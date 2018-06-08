@@ -1,10 +1,10 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "ljdns"
-version = "0.3-1"
+version = "0.4-0"
 -- LuaDist source
 source = {
-  tag = "0.3-1",
+  tag = "0.4-0",
   url = "git://github.com/LuaDist-testing/ljdns.git"
 }
 -- Original source
@@ -52,7 +52,7 @@ build = {
     ["dns.tls"] = "dns/tls.lua",
     ["dns.dnssec"] = "dns/dnssec.lua",
     dns = "dns.lua",
-    kdns_clib = "src/utils.c",
+    kdns_clib = { "src/utils.c", "src/murmurhash3.c" },
   }
 }
 rockspec_format = "1.1"
